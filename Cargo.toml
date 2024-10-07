@@ -1,5 +1,3 @@
-cargo-features = ["edition2024", "profile-rustflags"]
-
 [package]
 name = "rusted-assault-cube"
 version = "2.3.1"
