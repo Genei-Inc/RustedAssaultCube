@@ -30,11 +30,16 @@ jobs:
       - name: run-vcpkg
         uses: lukka/run-vcpkg@66b1ea8d89609e8adecfeb38797f4479f447a374
 
-      - name: Fetch vcpkg dependencies
-        run: ${{ github.workspace }}/vcpkg/vcpkg integrate install
+      - name: Install vcpkg
+        run: |
+          git clone https://github.com/microsoft/vcpkg.git
+          ./vcpkg/bootstrap-vcpkg.bat
+
+      - name: Integrate install vcpkg
+        run: ./vcpkg/vcpkg integrate install
 
       - name: Fetch vcpkg dependencies
-        run: ${{ github.workspace }}/vcpkg/vcpkg install freetype:x86-windows-static-md
+        run: ./vcpkg/vcpkg install freetype:x86-windows-static-md
 
       - name: Build Release Artifacts
         run: cargo build --release
