@@ -29,14 +29,12 @@ jobs:
 
       - name: run-vcpkg
         uses: lukka/run-vcpkg@66b1ea8d89609e8adecfeb38797f4479f447a374
-        with:
-          vcpkgTriplet: x86-windows-static-md
 
       - name: Fetch vcpkg dependencies
         run: vcpkg integrate install
 
       - name: Fetch vcpkg dependencies
-        run: vcpkg install freetype
+        run: vcpkg install freetype:x86-windows-static-md
 
       - name: Build Release Artifacts
         run: cargo build --release
