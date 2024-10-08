@@ -1,5 +1,5 @@
 name: Rust Release
-
+runs-on: windows-latest
 on:
   push:
     tags: "v*"
